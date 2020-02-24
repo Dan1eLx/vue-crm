@@ -8,7 +8,7 @@ export default {
         setInfo(state, info) {
             state.info = info
         },
-        cleareInfo(state){
+        clearInfo(state){
             state.info = {}
         }
 

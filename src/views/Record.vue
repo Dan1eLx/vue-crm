@@ -27,10 +27,10 @@
             class="with-gap"
             name="type"
             type="radio"
-            value="income"
+            value="outcome"
             v-model="type"
         />
-        <span>Доход</span>
+        <span>Расход</span>
       </label>
     </p>
 
@@ -40,10 +40,10 @@
             class="with-gap"
             name="type"
             type="radio"
-            value="outcome"
+            value="income"
             v-model="type"
         />
-        <span>Расход</span>
+        <span>Доход</span>
       </label>
     </p>
 
@@ -92,7 +92,7 @@ export default {
     select: null,
     categories: [],
     category: null,
-    type:'income',
+    type:'outcome',
     amount: 0,
     description: ''
   }),

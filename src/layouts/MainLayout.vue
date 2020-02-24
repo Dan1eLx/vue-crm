@@ -20,6 +20,7 @@
 <script>
 import Navbar from '@/components/app/Navbar.vue'
 import Sidebar from '@/components/app/Sidebar.vue'
+import messages from '@/utils/messages'
 
 export default {
     name: 'main-layout',
@@ -36,6 +37,16 @@ export default {
     },
     components:{
         Navbar, Sidebar
+    },
+    computed: {
+        error() {
+            return this.$store.getters.error
+        }
+    },
+    watch: {
+        error(fbError){
+            this.$error(messages[fbError.code] || 'Ошибка')
+        }
     }
 }
 </script>
