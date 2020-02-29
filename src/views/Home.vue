@@ -30,24 +30,29 @@ import HomeBill from '@/components/HomeBill'
 import HomeCurrency from '@/components/HomeCurrency'
 
 export default {
-    name: 'Home',
-    data: () => ({
-      loading: true,
-      currency: null
-    }),
-    async mounted(){
+  metaInfo() {
+      return {
+        title: this.$title('ProfileTitle')
+      }
+  },
+  name: 'Home',
+  data: () => ({
+    loading: true,
+    currency: null
+  }),
+  async mounted(){
+    this.currency = await this.$store.dispatch('fetchCurrency')
+    this.loading = false
+  },
+  methods: {
+    async refresh(){
+      this.loading = true
       this.currency = await this.$store.dispatch('fetchCurrency')
       this.loading = false
-    },
-    methods: {
-      async refresh(){
-        this.loading = true
-        this.currency = await this.$store.dispatch('fetchCurrency')
-        this.loading = false
-      }
-    },
-    components: {
-      HomeBill, HomeCurrency
+    }
+  },
+  components: {
+    HomeBill, HomeCurrency
   }
 }
 </script>

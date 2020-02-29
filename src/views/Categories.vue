@@ -23,6 +23,11 @@
 import CategoryCreate from '@/components/CategoryCreate'
 import CategoryEdit from '@/components/CategoryEdit'
 export default {
+    metaInfo() {
+      return {
+        title: this.$title('Categories')
+      }
+  },
   name: 'categories',
   data: () => ({
     categories: [],
